@@ -1,6 +1,6 @@
-package Recursion;
 
-public class MobileKeyPad {
+
+public class MobileKeypad {
 	
 	public static String getKeypad(char c) {
 		if (c == '2') {
