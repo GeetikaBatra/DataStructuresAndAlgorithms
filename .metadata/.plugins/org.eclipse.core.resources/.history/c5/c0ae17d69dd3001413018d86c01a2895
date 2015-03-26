@@ -1,0 +1,19 @@
+package Recursion;
+
+public class NumOfRabbits {
+	public static int numOfRabbitsPerMonth(int month)
+	{
+		if(month<3)
+		{
+			return 1;
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

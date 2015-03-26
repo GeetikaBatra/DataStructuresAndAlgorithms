@@ -19,6 +19,7 @@ public class Subsequenc {
 	    		output[k]=smallerOutput[i];
 	    		
 	    	}
+	    	
 	    	else
 	    		
 	    	{
