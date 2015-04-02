@@ -79,7 +79,7 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] input = new int[6];
+		int[] input = new int[7];
 		Scanner s = new Scanner(System.in);
 		for(int i=0;i<input.length;i++)
 		{
