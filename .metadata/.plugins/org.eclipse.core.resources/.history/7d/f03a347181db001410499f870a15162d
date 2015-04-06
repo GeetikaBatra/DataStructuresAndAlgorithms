@@ -1,0 +1,22 @@
+package DataStructures;
+
+public class ReversingQueue {
+	public QueueUsingLL reverse(QueueUsingLL q) throws queueEmptyException
+	{
+		if (q.size() == 0) {
+			queueEmptyException e = new queueEmptyException();
+			throw e;
+		}
+		int element = q.dequeue();
+		if(q.size()==0)
+		{
+			q.enqueue(element);
+			return q;
+		}
+		 reverse(q).enqueue(element);
+		 return q;
+		
+		
+	}
+	
+}

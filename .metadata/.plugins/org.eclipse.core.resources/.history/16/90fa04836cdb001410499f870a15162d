@@ -1,0 +1,74 @@
+package DataStructures;
+
+public class UseOfStacksAndQueue {
+
+	public static void main(String[] args) throws StackEmptyException, queueEmptyException {
+		// TODO Auto-generated method stub
+		int[] a = {1,2,3,4,5};
+		int i;
+//		StackUsingLinkedList s= new StackUsingLinkedList();
+//
+//		for(i=0;i<a.length;i++)
+//		{
+//			s.push(a[i]);
+//		}
+//		try
+//		{
+//			System.out.println(s.top());
+//
+//		}
+//		catch(StackEmptyException e)
+//		{
+//			throw e;
+//		}
+//		System.out.println(s.size());
+//
+//		try
+//		{  int size=s.size();
+//			for( i=0;i<size;i++)
+//			{
+//				System.out.println(s.pop());
+//			}
+//
+//		}
+//		catch(StackEmptyException e)
+//		{
+//			throw e;
+//		}
+		Queue2Stacks q= new Queue2Stacks();
+		for(i=0;i<a.length;i++)
+		{
+			q.enqueue(a[i]);
+		}
+//		try
+//		{
+//			System.out.println(q.front());
+//
+//		}
+//		catch(queueEmptyException e)
+//		{
+//			throw e;
+//		}
+//		ReversingQueue q1 = new ReversingQueue();
+//		q=q1.reverse(q);
+		try
+		{
+			int size=q.size();
+			for( i=0;i<size;i++)
+			{
+				System.out.println(q.dequeue());
+			}
+
+		}
+		catch(queueEmptyException e)
+		{
+			throw e;
+		}
+	
+		
+		
+	}
+}
+
+
+

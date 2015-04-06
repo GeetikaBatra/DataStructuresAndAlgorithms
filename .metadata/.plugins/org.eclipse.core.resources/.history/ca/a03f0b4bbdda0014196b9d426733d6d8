@@ -1,0 +1,65 @@
+package DataStructures;
+
+public class StackUsingLinkedList {
+	private	node<Integer> head=null;
+	private int lastIndex=0;
+	
+	public  int size()
+	{
+		return lastIndex;
+	}
+	public boolean isEmpty()
+	{
+		if(size()==0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public int top() throws StackEmptyException
+	{
+		if(isEmpty())
+		{
+			StackEmptyException e = new StackEmptyException();
+			throw e;
+		}
+		node<Integer> temp =new node<Integer>();
+		temp=head;
+		temp.next=null;
+		return temp.data;
+	}
+	public void push(int data)
+	{  
+		node<Integer> temp = new node<Integer>();
+		temp.data=data;
+		
+		if(head==null)
+		{
+			head=temp;
+			temp.next=null;
+		
+		}
+		else
+		{
+			temp.next=head;
+			head=temp;
+			
+		}
+		lastIndex++;
+	}
+	public Integer pop() throws StackEmptyException
+	{  
+		if(isEmpty())
+		{
+			StackEmptyException e = new StackEmptyException();
+			throw e;
+		}
+		node<Integer> temp = head;
+		head=head.next;
+		lastIndex--;
+		return temp.data;
+	}
+}
