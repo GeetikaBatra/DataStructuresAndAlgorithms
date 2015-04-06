@@ -1,39 +1,26 @@
 package DataStructures;
 
 public class Stack2Queues {
-	QueueUsingLL q1 = new QueueUsingLL();
-	QueueUsingLL q2 = new QueueUsingLL();
-	
-	public QueueUsingLL reverse(QueueUsingLL q) throws queueEmptyException
+	QueueUsingLL q1 ;
+	QueueUsingLL q2 ;
+	public Stack2Queues(QueueUsingLL q1 ,QueueUsingLL q2)
 	{
-		if (q.size() == 0) {
-			queueEmptyException e = new queueEmptyException();
-			throw e;
-		}
-		int element = q.dequeue();
-		if(q.size()==0)
-		{
-			q.enqueue(element);
-			return q;
-		}
-		 reverse(q).enqueue(element);
-		 return q;
+		this.q1 = q1;
+	    this.q2 = q2;
 		
 		
 	}
+	
 	public int size() {
-		if(q1.size()==0 && q2.size()==0)
+		if(q1.size()==0)
 		{
 			return 0;
 		}
-		else if(q1.size()!=0)
+		else
 		{
 			return q1.size(); 
 		}
-		else
-		{
-			return q2.size();
-		}
+		
 		
 		
 	}
@@ -50,29 +37,23 @@ public class Stack2Queues {
 	}
 	public void push(int data) throws queueEmptyException
 	{
-		if(q1.isEmpty() && q2.isEmpty())
-		{
-			q1.enqueue(data);
-		}
-		else if(!q2.isEmpty())
-		{
-			q1=reverse(q2);
-			q1.enqueue(data);
-		}
-		else
-		{
-			q1.enqueue(data);
-		}
+		q1.enqueue(data);
 		
 	}
-	public int pop() throws StackEmptyException
+	public int pop() throws queueEmptyException
 	{
-		if(q1.isEmpty() && q2.isEmpty())
+		int size=q1.size()-1;
+		for(int i=0;i<size;i++)
 		{
-			StackEmptyException e = new StackEmptyException();
-			throw e;
+			q2.enqueue(q1.dequeue());
 		}
-		else if(!q1.)
+		int element= q1.dequeue();
+		QueueUsingLL temp;
+		temp=q1;
+		q1=q2;
+		q2=temp;
+		return element;
+		
 	}
 	
 	

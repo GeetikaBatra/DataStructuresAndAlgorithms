@@ -6,19 +6,18 @@ public class UseOfStacksAndQueue {
 		// TODO Auto-generated method stub
 		int[] a = {1,2,3,4,5};
 		int i;
-		//Stack2Queues s= new Stack2Queues();
-		StackUsingLinkedList s = new StackUsingLinkedList();
-		StackUsingLinkedList s2= new StackUsingLinkedList();
-		
+		QueueUsingLL q1 = new QueueUsingLL();
+		QueueUsingLL q2 =new QueueUsingLL();
+		Stack2Queues s= new Stack2Queues(q1,q2);
+		//StackUsingLinkedList s = new StackUsingLinkedList();
+//		StackUsingLinkedList s2= new StackUsingLinkedList();
+//		
 		for(i=0;i<a.length;i++)
 		{
 			s.push(a[i]);
 		}
-	    StackReverseStack.transfer(s,s2);
-	    for(i=0;i<a.length;i++)
-		{
-	    	System.out.println(s.pop());
-		}
+//	    StackReverseStack.transfer(s,s2);
+	    
 //		try
 //		{
 //			System.out.println(s.top());
@@ -28,15 +27,16 @@ public class UseOfStacksAndQueue {
 //		{
 //			throw e;
 //		}
-//		System.out.println(s.size());
-//
+		System.out.println(s.size());
+
 //		try
-//		{  int size=s.size();
-//			for( i=0;i<size;i++)
-//			{
-//				System.out.println(s.pop());
-//			}
-//
+//		{  
+		int size=s.size();
+			for( i=0;i<size;i++)
+			{
+				System.out.println(s.pop());
+			}
+
 //		}
 //		catch(StackEmptyException e)
 //		{
