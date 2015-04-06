@@ -108,6 +108,19 @@ public class linkedList {
 		return input;
 		
 	}
+	public static int midPoint(node<Integer> input)
+	
+	{
+		int count=0;
+		node<Integer> fast=input;
+		while(fast!=null&&fast.next!=null)
+		{
+			fast=fast.next.next;
+			count++;
+		}
+
+		return count;
+	}
 	public static node<Integer> InsertNode(int n,node<Integer> input)
 	{
 		System.out.println("Enter the data to be inserted");
@@ -151,7 +164,118 @@ public class linkedList {
 		}
 		return minPosition;
 	}
+	public static node<Integer> mergeSort(node<Integer> head)
+	{
+		if(head==null || head.next==null)
+			return head;
+			
+		
+		int mid=midPoint(head);
+		node<Integer> firstPart=head;
+		node<Integer> currentPosition = head;
+		while(mid!=1)
+		{
+			currentPosition=currentPosition.next;
+			mid--;
+			 
+		}
+		node<Integer> secondPart=currentPosition.next;
+		currentPosition.next=null;
+		//printLinkedList(firstPart);
+		//printLinkedList(secondPart);
+		//return head;
+		node<Integer> firstSorted=mergeSort(firstPart);
+		node<Integer> secondSorted=mergeSort(secondPart);
+		return merging(firstSorted,secondSorted);
+		
+		}
+
+	public static node<Integer> merging(node<Integer> firstPart,node<Integer> secondPart)
+	{
+		node<Integer> output=null;
+		
+		
+		node<Integer> first=firstPart;
+		node<Integer> second= secondPart;
+		node<Integer> firstRemaining=firstPart.next;
+		firstPart.next=null;
+		node<Integer> secondRemaining=secondPart.next;
+		secondPart.next=null;
+		
+		while(firstRemaining!=null && secondRemaining!=null)
+		{
+			
+			if(first.data<second.data)
+			{
+				if(output==null)
+				{
+					
+					output=firstPart;
+					
+				}
+				output.next=first;
+				first=first.next;
+				
+			}
+			else
+			{
+				if(output==null)
+				{
+					output=secondPart;
+					
+				}
+				output.next=secondPart;
+				secondPart=secondPart.next;
+			}
+		}
+		if(firstRemaining==null)
+		{
+			output.next=secondPart;
+		}
+		if(secondRemaining==null)
+		{
+			output.next=firstPart;
+		}
+		
+		
 	
+		return output;
+
+		
+	
+		
+	}
+	public static node<Integer> bubbleSort(node<Integer> head)
+	{
+		if(head==null || head.next==null)
+			return head;
+		
+		node<Integer> sortedSoFar=null;
+		node<Integer> remaining = head;
+	 
+		while(remaining!=null)
+		{
+			node<Integer> currentNode = remaining;
+			while(currentNode.next.next!=null)
+			{
+				//if(currentNode.data>currentNode.next.data)
+				//{
+				//	remaining=swap(currentNode,currentNode.next);
+				//}
+				currentNode=currentNode.next;
+			}
+			
+			if(sortedSoFar==null)
+			{
+				sortedSoFar=currentNode.next;
+			}
+			
+		}
+		return head;
+	}
+	
+	 
+
 	public static node<Integer> selectionSort(node<Integer> head)
 	{
 		if(head==null || head.next==null)
@@ -199,40 +323,76 @@ public class linkedList {
 	}
 	
 		
-	public static void swap(int ith,int jth,node<Integer> input)
-	{
-		int n=1;
-		node<Integer> LinkedList1=input;
-		node<Integer> currentPosition=LinkedList1;
-		while(n<ith)
-		{
-			currentPosition=currentPosition.next;
-			n++;
+	public static node<Integer> swap(node<Integer> head, int i, int j) {
+		if (i == 0) {
+			node<Integer> ith = head;
+			node<Integer> prevj = null;
+			node<Integer> jth = head;
+			int count = 0;
+			while (count < j) {
+				prevj = jth;
+				jth = jth.next;
+				count++;
+			}
+			head = jth;
+			node<Integer> nexti = ith.next;
+			node<Integer> nextj = jth.next;
+
+			if (i == j - 1) {
+				jth.next = ith;
+				ith.next = nextj;
+			} else {
+				ith.next = nextj;
+				prevj.next = ith;
+				jth.next = nexti;
+			}
+			return head;
+
 		}
-		node<Integer> LinkedList2=currentPosition.next;
-		currentPosition.next=null;
-		
-	    currentPosition=LinkedList2;
-	   
-		
-		while(n<jth-ith)
-		{
-			currentPosition=currentPosition.next;
+
+		node<Integer> previ = null;
+		node<Integer> ith = head;
+		int count = 0;
+		while (count < i) {
+			previ = ith;
+			ith = ith.next;
+			count++;
 		}
-		node<Integer> LinkedList3=currentPosition.next;
-		currentPosition.next=null;
-	   printLinkedList(LinkedList1);
-	   printLinkedList(LinkedList2);
-	   printLinkedList(LinkedList3);
-	   
+
+		node<Integer> prevj = null;
+		node<Integer> jth = head;
+		count = 0;
+		while (count < j) {
+			prevj = jth;
+			jth = jth.next;
+			count++;
+		}
+		node<Integer> nexti = ith.next;
+		node<Integer> nextj = jth.next;
+
+		if (i != j - 1) {
+
+			previ.next = jth;
+			prevj.next = ith;
+
+			ith.next = nextj;
+			jth.next = nexti;
+		} else {
+			previ.next = jth;
+			ith.next = nextj;
+			jth.next = ith;
+		}
+
+		return head;
 	}
 	public static void main(String[] args)
 	{
 		
 		node<Integer> Head = takeInputOfLinkedList();
 		
-		
-		swap(2,3,Head);
+		//System.out.println(midPoint(Head));
+		//printLinkedList(midPoint(Head));
+		mergeSort(Head);
 		
 	}
 }
