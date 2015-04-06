@@ -192,7 +192,7 @@ public class linkedList {
 
 	public static node<Integer> merging(node<Integer> firstPart,node<Integer> secondPart)
 	{
-		node<Integer> output=new node<Integer>();
+		node<Integer> output=null;
 		node<Integer> currentPosition=output;
 		
 		if(firstPart.next==null && secondPart.next==null)
@@ -218,13 +218,13 @@ public class linkedList {
 			if(firstPart.data<secondPart.data)
 			{
 				
-				currentPosition.next=firstPart;
+				output.next=firstPart;
 				firstPart=firstPart.next;
 				currentPosition=currentPosition.next;
 			}
 			else
 			{
-				currentPosition.next=secondPart;
+				output.next=secondPart;
 				secondPart=secondPart.next;
 				currentPosition=currentPosition.next;
 			}

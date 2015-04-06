@@ -192,49 +192,51 @@ public class linkedList {
 
 	public static node<Integer> merging(node<Integer> firstPart,node<Integer> secondPart)
 	{
-		node<Integer> output=new node<Integer>();
-		node<Integer> currentPosition=output;
+		node<Integer> output=null;
 		
-		if(firstPart.next==null && secondPart.next==null)
+		
+		node<Integer> first=firstPart;
+		node<Integer> second= secondPart;
+		node<Integer> firstRemaining=firstPart.next;
+		firstPart.next=null;
+		node<Integer> secondRemaining=secondPart.next;
+		secondPart.next=null;
+		
+		while(firstRemaining!=null && secondRemaining!=null)
 		{
-			if(firstPart.data<secondPart.data)
+			
+			if(first.data<second.data)
+			{
+				if(output==null)
 				{
-					firstPart.next=secondPart;
-					return firstPart;
+					
+					output=firstPart;
+					
 				}
-			else
-			{
-				secondPart.next=firstPart;
-				return secondPart;
-			}
-			
-		}
-		if(firstPart.data<secondPart.data)
-			output=firstPart;
-		else
-			output=secondPart;
-		while(firstPart!=null && secondPart!=null)
-		{
-			if(firstPart.data<secondPart.data)
-			{
+				output.next=first;
+				first=first.next;
 				
-				currentPosition.next=firstPart;
-				firstPart=firstPart.next;
-				currentPosition=currentPosition.next;
 			}
 			else
 			{
-				currentPosition.next=secondPart;
+				if(output==null)
+				{
+					output=secondPart;
+					
+				}
+				output.next=secondPart;
 				secondPart=secondPart.next;
-				currentPosition=currentPosition.next;
 			}
-			
-			
 		}
-		if(firstPart!=null)
-			currentPosition.next=firstPart;
-		else
-			currentPosition.next=secondPart;
+		if(firstRemaining==null)
+		{
+			output.next=secondPart;
+		}
+		if(secondRemaining==null)
+		{
+			output.next=firstPart;
+		}
+		
 		
 	
 		return output;
@@ -389,8 +391,8 @@ public class linkedList {
 		node<Integer> Head = takeInputOfLinkedList();
 		
 		//System.out.println(midPoint(Head));
-		printLinkedList(mergeSort(Head));
-		
+		//printLinkedList(midPoint(Head));
+		mergeSort(Head);
 		
 	}
 }
