@@ -254,26 +254,53 @@ public class linkedList {
 		while(remaining!=null)
 		{
 			node<Integer> currentNode = remaining;
+			int i=0;
 			while(currentNode.next.next!=null)
 			{
-				//if(currentNode.data>currentNode.next.data)
-				//{
-				//	remaining=swap(currentNode,currentNode.next);
-				//}
+				if(currentNode.data>currentNode.next.data)
+				{
+					remaining=swap(remaining,i,i+1);
+				}
 				currentNode=currentNode.next;
+				i++;
 			}
+			currentNode.next.next=sortedSoFar;
+			sortedSoFar=currentNode.next;
+			currentNode.next=null;
 			
-			if(sortedSoFar==null)
-			{
-				sortedSoFar=currentNode.next;
-			}
+			
+			
+			
 			
 		}
-		return head;
-	}
-	
+		return sortedSoFar;
+	}	
 	 
-
+	public static node<Integer> recursiveBubble(node<Integer> head)
+	{
+		if(head==null || head.next==null)
+			return head;
+		
+		node<Integer> sortedSoFar=recursiveBubble(head.next);
+		head.next=sortedSoFar;
+		node<Integer> currentPosition=head;
+		while(currentPosition != null && currentPosition.next!=null)
+		{
+			int i=0;
+			if(currentPosition.data>currentPosition.next.data)
+			{
+				head=swap(head,i,i+1);
+			}
+			
+			currentPosition=currentPosition.next;
+			i++;
+				
+		}
+		return head;
+		
+					
+	
+	}
 	public static node<Integer> selectionSort(node<Integer> head)
 	{
 		if(head==null || head.next==null)
@@ -383,13 +410,63 @@ public class linkedList {
 
 		return head;
 	}
+ 
+	
+		
+		
+		
+	public static node<Integer> arranging(node<Integer> Head)
+	{
+		if(Head==null || Head.next==null)
+		{
+			return Head;
+		}
+		node<Integer> output=arranging(Head.next);
+		node<Integer> current = output;
+		if(Head.data%2==0)
+		{
+			while(current.next.data%2!=0)
+			{
+				current=current.next;
+			}
+			Head.next=current.next;
+			current.next=Head;
+			
+		}
+		else
+		{
+			Head.next=output;
+			output=Head;
+		}
+		return output;
+	}
+	
+	public static void printReverse(node<Integer> head)
+	{
+		
+		if(head.next==null || head==null)
+		{
+			System.out.println(head.data);
+			
+		}
+		else
+			{
+				printReverse(head.next);
+				System.out.println(head.data);
+			}
+		
+		
+	}
 	public static void main(String[] args)
 	{
 		
 		node<Integer> Head = takeInputOfLinkedList();
 		
+		
 		//System.out.println(midPoint(Head));
-		printLinkedList(mergeSort(Head));
+		printLinkedList(arranging(Head));
+		//printReverse(Head);
+		
 		
 		
 	}
