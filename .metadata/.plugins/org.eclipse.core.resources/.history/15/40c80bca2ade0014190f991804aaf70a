@@ -489,13 +489,7 @@ public class linkedList {
 			return Head;
 		}
 		
-		node<Integer> output=reverseRecursive(Head.next);
-		node<Integer> current = output;
-		while(current.next!=null)
-		{
-			current=current.next;
-		}
-		current.next=Head;
+		node<Integer> output=reverseRecursive(Head.next).next=Head;
 		Head.next=null;
 		return output;
 		

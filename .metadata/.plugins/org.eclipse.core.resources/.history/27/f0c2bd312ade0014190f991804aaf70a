@@ -488,16 +488,10 @@ public class linkedList {
 		{
 			return Head;
 		}
-		
-		node<Integer> output=reverseRecursive(Head.next);
-		node<Integer> current = output;
-		while(current.next!=null)
-		{
-			current=current.next;
-		}
-		current.next=Head;
-		Head.next=null;
-		return output;
+		node<Integer> currentNode=new node<Integer>();
+		currentNode=Head;
+		currentNode.next=null;
+		return reverseRecursive(Head.next).next=currentNode;
 		
 	}
 	public static void main(String[] args)
