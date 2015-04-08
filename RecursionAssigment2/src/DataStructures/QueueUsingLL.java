@@ -1,9 +1,9 @@
 package DataStructures;
 
-public class QueueUsingLL 
+public class QueueUsingLL<T> 
 {
-	private	node<Integer> head=null;
-	private node<Integer> tail=head;
+	private	node<T> head=null;
+	private node<T> tail=head;
 	private int size=0;
 	public  int size()
 	{
@@ -20,7 +20,7 @@ public class QueueUsingLL
 			return false;
 		}
 	}
-	public int front() throws queueEmptyException
+	public T front() throws queueEmptyException
 	{
 		if(isEmpty())
 		{
@@ -29,9 +29,9 @@ public class QueueUsingLL
 		}
 		return head.data;
 	}
-	public void enqueue(int data)
+	public void enqueue(T data)
 	{  
-		node<Integer> temp = new node<Integer>();
+		node<T> temp = new node<T>();
 		temp.data=data;
 		
 		if(head==null)
@@ -49,14 +49,14 @@ public class QueueUsingLL
 		
 		size++;
 	}
-	public Integer dequeue() throws queueEmptyException
+	public T dequeue() throws queueEmptyException
 	{  
 		if(isEmpty())
 		{
 			queueEmptyException e = new queueEmptyException();
 			throw e;
 		}
-		int data = head.data;
+		T data = head.data;
 		head=head.next;
 		size--;
 		

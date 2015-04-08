@@ -1,7 +1,7 @@
 package DataStructures;
 
 public class ReversingQueue {
-	public static QueueUsingLL reverse(QueueUsingLL q) throws queueEmptyException
+	public static QueueUsingLL<Integer> reverse(QueueUsingLL<Integer> q) throws queueEmptyException
 	{
 		if (q.size() == 0) {
 			return q;

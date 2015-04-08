@@ -1,9 +1,9 @@
 package DataStructures;
 
 public class Stack2Queues {
-	QueueUsingLL q1 ;
-	QueueUsingLL q2 ;
-	public Stack2Queues(QueueUsingLL q1 ,QueueUsingLL q2)
+	QueueUsingLL<Integer> q1 ;
+	QueueUsingLL<Integer> q2 ;
+	public Stack2Queues(QueueUsingLL<Integer> q1 ,QueueUsingLL<Integer> q2)
 	{
 		this.q1 = q1;
 	    this.q2 = q2;
@@ -48,7 +48,7 @@ public class Stack2Queues {
 			q2.enqueue(q1.dequeue());
 		}
 		int element= q1.dequeue();
-		QueueUsingLL temp;
+		QueueUsingLL<Integer> temp;
 		temp=q1;
 		q1=q2;
 		q2=temp;
