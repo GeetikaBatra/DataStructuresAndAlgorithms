@@ -467,7 +467,6 @@ public class linkedList {
 		while(n!=0)
 		{
 			current=current.next;
-			n--;
 		}
 		secondPart=current.next;
 		current.next=null;

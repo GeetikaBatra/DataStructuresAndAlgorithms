@@ -413,7 +413,8 @@ public class linkedList {
  
 	
 		
-				
+		
+		
 	public static node<Integer> arranging(node<Integer> Head)
 	{
 		if(Head==null || Head.next==null)
@@ -424,7 +425,8 @@ public class linkedList {
 		node<Integer> current = output;
 		if(Head.data%2==0)
 		{
-			while(current.next.data%2!=0);			{
+			while(current.next.data%2!=0)
+			{
 				current=current.next;
 			}
 			Head.next=current.next;
@@ -437,10 +439,6 @@ public class linkedList {
 			output=Head;
 		}
 		return output;
-		
-		
-		
-		
 	}
 	
 	public static void printReverse(node<Integer> head)
@@ -459,28 +457,6 @@ public class linkedList {
 		
 		
 	}
-	public static node<Integer> append(node<Integer> Head,int n)
-	{
-		node<Integer> firstPart = Head;
-		node<Integer> secondPart;
-		node<Integer> current=Head;
-		while(n!=0)
-		{
-			current=current.next;
-			n--;
-		}
-		secondPart=current.next;
-		current.next=null;
-		current=secondPart;
-		while(current.next!=null)
-		{
-			current=current.next;
-			
-		}
-		current.next=firstPart;
-		return secondPart;
-		
-	}
 	public static void main(String[] args)
 	{
 		
@@ -488,7 +464,7 @@ public class linkedList {
 		
 		
 		//System.out.println(midPoint(Head));
-		printLinkedList(append(Head,2));
+		printLinkedList(arranging(Head));
 		//printReverse(Head);
 		
 		

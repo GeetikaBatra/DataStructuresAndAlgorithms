@@ -467,7 +467,6 @@ public class linkedList {
 		while(n!=0)
 		{
 			current=current.next;
-			n--;
 		}
 		secondPart=current.next;
 		current.next=null;
@@ -488,7 +487,7 @@ public class linkedList {
 		
 		
 		//System.out.println(midPoint(Head));
-		printLinkedList(append(Head,2));
+		printLinkedList(append(Head),2);
 		//printReverse(Head);
 		
 		
