@@ -143,33 +143,14 @@ public class TreeUse {
 		return nodeWithMax;
 		
 	}
-//	public static boolean identicalCheck(TreeNode<Integer> Tree1,TreeNode<Integer> Tree2){
-//		if(Tree1.children.size()==0 && Tree2.children.size()==0)
-//	}
-	public static int leafNodes(TreeNode<Integer> root)
-	{
-		int count=0;
-		if(root.children.size()==0)
-			count= 1;
-		
-		for(int i=0;i<root.children.size();i++)
-		{
-			count+=leafNodes(root.children.get(i));
-			
-		}
-		return count;
-		
-	
-	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeNode<Integer> root = takeTreeInput2();
 		//print(root);
 		//printAtK(root, 2);
-//		TreeNode<Integer> maxChildren=maxChildren(root);
-//		System.out.println(maxChildren.data);
-		System.out.println(leafNodes(root));
-//		System.out.println(maxChildren.children.size());
+		TreeNode<Integer> maxChildren=maxChildren(root);
+		System.out.println(maxChildren.data);
+		System.out.println(maxChildren.children.size());
 	}
 
 }

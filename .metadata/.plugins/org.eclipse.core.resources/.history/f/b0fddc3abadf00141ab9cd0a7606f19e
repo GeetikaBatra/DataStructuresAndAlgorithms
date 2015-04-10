@@ -63,7 +63,7 @@ public class PracticeTreeUse {
 			int numOfChildren=s.nextInt();
 		for(int i=0;i<numOfChildren;i++)
 		{
-			System.out.println("Enter the data for"+i+"th child of" + currentNode.data );
+			System.out.println("Enter the data for"+i+"t children of" + currentNode.data );
 			int data= s.nextInt();
 			
 			PracticeTreeNode<Integer> child=new PracticeTreeNode<Integer>(data);
