@@ -145,7 +145,40 @@ public class TreeUse {
 	}
 //	public static boolean identicalCheck(TreeNode<Integer> Tree1,TreeNode<Integer> Tree2){
 //		if(Tree1.children.size()==0 && Tree2.children.size()==0)
+//		{
+//			return 
+//		}
 //	}
+	public static TreeNode<Integer> MaxThanN(TreeNode<Integer> root,int n)
+	{
+		int numOfChildren = root.children.size();
+		TreeNode<Integer> max=root;
+		for(int i=0;i<numOfChildren;i++)
+		{
+			TreeNode<Integer> currentMax;
+			currentMax=MaxThanN(root.children.get(i),n);
+			if(currentMax.data>n )
+				
+				{
+				max=currentMax;
+				break;
+				}
+			
+			
+		}
+		for(int i=0;i<numOfChildren;i++)
+		{
+			TreeNode<Integer> currentMax;
+			currentMax=MaxThanN(root.children.get(i),n);
+			if(currentMax.data>n && currentMax.data<max.data )
+				max=currentMax;
+			
+			
+		}
+		
+			return max;
+		
+	}
 	public static int leafNodes(TreeNode<Integer> root)
 	{
 		int count=0;
@@ -161,14 +194,33 @@ public class TreeUse {
 		
 	
 	}
+	public static boolean sameStructure(TreeNode<Integer> root1,TreeNode<Integer> root2)
+	{
+		if(root1.data==root2.data)
+		{
+			return false;
+		}
+		if(root1.children.size()!=root2.children.size())
+		{
+			return false;
+		}
+		for(int i=0;i<root1.children.size();i++)
+		{
+			boolean currentChildrenSame=sameStructure(root1.children.get(i),root2.children.get(i));
+			if(!currentChildrenSame)
+				return false;
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeNode<Integer> root = takeTreeInput2();
 		//print(root);
 		//printAtK(root, 2);
-//		TreeNode<Integer> maxChildren=maxChildren(root);
-//		System.out.println(maxChildren.data);
-		System.out.println(leafNodes(root));
+	TreeNode<Integer> maxChildren=MaxThanN(root,2);
+		System.out.println(maxChildren.data);
+	//	System.out.println(leafNodes(root));
 //		System.out.println(maxChildren.children.size());
 	}
 

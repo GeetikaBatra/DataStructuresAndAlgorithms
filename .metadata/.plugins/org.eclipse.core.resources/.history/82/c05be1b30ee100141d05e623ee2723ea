@@ -1,0 +1,307 @@
+package DataStructures;
+
+import java.util.Scanner;
+
+public class BinaryTreeUse {
+	public static BinaryNode<Integer> getBinaryTreeInput()
+	{
+		QueueUsingLL<BinaryNode<Integer>> queue = new QueueUsingLL<BinaryNode<Integer>>();
+		
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the root");
+		int rootData=s.nextInt();
+		BinaryNode<Integer> root = new BinaryNode<Integer>();
+		root.data=rootData;
+		queue.enqueue(root);
+		while(!queue.isEmpty())
+		{
+			BinaryNode<Integer> current;
+			try
+			{
+				 current=queue.dequeue();
+			}
+			catch(queueEmptyException e)
+			{
+				return null;
+			}
+			
+		System.out.println("Enter the left Child of " + current.data);
+		int leftData=s.nextInt();
+		if(leftData!=-1)
+		{
+			BinaryNode<Integer> left = new BinaryNode<Integer>();
+			left.data=leftData;
+			current.left=left;
+			queue.enqueue(left);
+			
+		}
+		System.out.println("Enter the right Child of " + current.data);
+		int rightData=s.nextInt();
+		if(rightData!=-1)
+		{
+			BinaryNode<Integer> right = new BinaryNode<Integer>();
+			right.data=rightData;
+			current.right=right;
+			queue.enqueue(right);
+			
+		}
+		
+		}
+		return root;
+	}
+	public static void print(BinaryNode<Integer> root)
+	{
+		if(root==null)
+			return ;
+		
+		String printString=root.data + ":";
+		if(root.left!=null)
+		{
+			printString+= "left:" + root.left.data;
+		}
+		if(root.right!=null)
+		{
+			printString+= "right:" + root.right.data;
+		}
+		System.out.println(printString);
+		print(root.left);
+		print(root.right);
+		
+	}
+	public static int height(BinaryNode<Integer> root)
+	{
+		if(root.left==null && root.right==null)
+			return 1;
+		int countLeft=0;
+		int countRight=0;
+		if(root.left!=null)
+			countLeft=height( root.left);
+		
+		if(root.right!=null)
+			countRight=height(root.right);
+		
+		if(countLeft>countRight)
+		return countLeft+1;
+		
+		else
+			return countRight+1;
+		
+		
+	}
+	public static void levelOrder(BinaryNode<Integer> root)
+	{
+		QueueUsingLL<BinaryNode<Integer>> queue = new QueueUsingLL<BinaryNode<Integer>>();
+		queue.enqueue(root);
+		while(!queue.isEmpty())
+		{
+			BinaryNode<Integer> current;
+			try
+			{
+			 current = queue.dequeue();
+			}
+			catch(queueEmptyException e)
+			{
+				return ;
+			}
+			String printString= current.data + ":";
+			if(current.left!=null)
+			{
+				printString=(printString + "left = " + current.left.data) ;
+			}
+			if(current.right!=null)
+			{
+				printString=(printString + "right = " + current.right.data );
+			}
+			
+			
+			System.out.println(printString);
+			
+			if(current.left!=null)
+			{
+				queue.enqueue(current.left);
+			}
+			if(current.right!=null)
+			{
+				queue.enqueue(current.right);
+			}
+			
+			
+		}
+		
+	}
+	public static int getLargest(BinaryNode<Integer> root)
+	{
+		if(root.left==null && root.right==null)
+			return root.data;
+		int max= root.data;
+		int maxRight=0;
+		int maxLeft=0;
+		
+		if(root.left!=null)
+			maxLeft=getLargest( root.left);
+		
+		if(root.right!=null)
+			maxRight=getLargest(root.right);
+		
+		if(maxLeft>max)
+			max =maxLeft;
+		if(maxRight>max)
+			max=maxRight;
+		
+		return max;
+	}
+	public static int Sum(BinaryNode<Integer> root)
+	{
+		if(root.left==null && root.right==null)
+			return root.data;
+		
+		int sum= root.data;
+		int sumRight=0;
+		int sumLeft=0;
+		
+		if(root.left!=null)
+			sumLeft=Sum( root.left);
+		
+		if(root.right!=null)
+			sumRight=Sum(root.right);
+		
+		sum+=sumRight+sumLeft;
+		
+		return sum;
+	}
+	public static int NumOfNodes(BinaryNode<Integer> root)
+	{
+		int count=0;
+		if(root.left==null && root.right==null)
+			return 1;
+		int countLeft=0;
+		int countRight=0;
+		if(root.left!=null)
+			countLeft=NumOfNodes( root.left);
+		
+		if(root.right!=null)
+			countRight=NumOfNodes(root.right);
+		
+		count+=countLeft+countRight+1;
+		
+		return count;
+	}
+	public static int leafNodes(BinaryNode<Integer> root)
+	{
+		if(root.left==null && root.right==null)
+			return 1;
+		int countLeft=0;
+		int countRight=0;
+		if(root.left!=null)
+			countLeft=NumOfNodes( root.left);
+		
+		if(root.right!=null)
+			countRight=NumOfNodes(root.right);
+		
+		   return countRight+countLeft;
+		
+		
+	}
+	public static void preOrder(BinaryNode<Integer> root)
+	{
+		if(root==null)
+			return ;
+		
+		System.out.println(root.data);
+		preOrder(root.left);
+		preOrder(root.right);
+		 
+	}
+	public static void postOrder(BinaryNode<Integer> root)
+	{
+		if(root==null)
+			return ;
+		
+		postOrder(root.left);
+		postOrder(root.right);
+		System.out.println(root.data);
+		
+		 
+	}
+	public static void InOrder(BinaryNode<Integer> root)
+	{
+		if(root==null)
+			return ;
+		
+		InOrder(root.left);
+		System.out.println(root.data);
+		InOrder(root.right);
+		
+		
+		 
+	}
+//	public static Binary<Integer> mirrorTree(BinaryNode<Integer> root)
+//	{
+//		
+//	}
+	public static BinaryNode<Integer> buildingTree(int[] preOrder,int[] inOrder,int PreBegin,int PreEnd,int InBegin,int InEnd)
+	{
+		if(PreBegin>=PreEnd)
+		{
+			
+			BinaryNode<Integer> root = new BinaryNode<Integer>();
+			root.data=inOrder[InEnd];
+			return root;
+			
+		}
+		int rootData=preOrder[PreBegin];
+		int LeftTreeLength=0;
+		int i=InBegin;
+		while(inOrder[i]!=rootData)
+		{
+			LeftTreeLength++;
+			i++;
+		}
+		BinaryNode<Integer> leftTree=buildingTree(preOrder, inOrder,PreBegin+1,PreBegin+LeftTreeLength-1,InBegin,InBegin+LeftTreeLength-1);
+		BinaryNode<Integer> rightTree=buildingTree(preOrder,inOrder,PreBegin+LeftTreeLength+1,PreEnd,InBegin+LeftTreeLength+1,InEnd);
+		
+		BinaryNode<Integer> root = new BinaryNode<Integer>();
+		root.data=rootData;
+		root.left=leftTree;
+		root.right=rightTree;
+		return root;
+	    	
+	}
+	public static BinaryNode<Integer> returnNode(BinaryNode<Integer> root,int k)
+	{
+		if(root.data==k)
+			return root;
+		BinaryNode<Integer> right=null;
+		BinaryNode<Integer> left=null;
+		if(root.left!=null)
+		{
+			left=returnNode(root.left,k);
+		}
+		if(root.right!=null)
+		 right=returnNode(root.right,k);
+		
+		if(left!=null)
+		{
+			return left;
+			
+		}
+		if(right!=null)
+			return right;
+			
+		
+	return null;
+			
+	}
+	public static void main(String[] args)
+	{
+		//BinaryNode<Integer> root = getBinaryTreeInput();
+		//levelOrder(root);
+		int[] inOrder ={4,2,5,1,6,3,7};
+		int[] preOrder={1,2,4,5,3,6,7};
+		
+		BinaryNode<Integer> root =buildingTree(preOrder,inOrder,0,preOrder.length-1,0,inOrder.length-1);
+	    print(root);
+	}
+	
+	
+}

@@ -1,7 +1,7 @@
 package DataStructures;
 
-public class StackUsingLinkedList {
-	private	node<Integer> head=null;
+public class StackUsingLinkedList<T> {
+	private	node<T> head=null;
 	private int lastIndex=0;
 	
 	public  int size()
@@ -19,7 +19,7 @@ public class StackUsingLinkedList {
 			return false;
 		}
 	}
-	public int top() throws StackEmptyException
+	public T top() throws StackEmptyException
 	{
 		if(isEmpty())
 		{
@@ -28,9 +28,9 @@ public class StackUsingLinkedList {
 		}
 		return head.data;
 	}
-	public void push(int data)
+	public void push(T data)
 	{  
-		node<Integer> temp = new node<Integer>();
+		node<T> temp = new node<T>();
 		temp.data=data;
 		
 //		if(head==null)
@@ -50,14 +50,14 @@ public class StackUsingLinkedList {
 		
 		lastIndex++;
 	}
-	public Integer pop() throws StackEmptyException
+	public T pop() throws StackEmptyException
 	{  
 		if(isEmpty())
 		{
 			StackEmptyException e = new StackEmptyException();
 			throw e;
 		}
-		int data = head.data;
+		T data = head.data;
 		head=head.next;
 		lastIndex--;
 		
