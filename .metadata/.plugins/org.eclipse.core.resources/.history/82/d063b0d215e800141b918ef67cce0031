@@ -479,7 +479,7 @@ public class BinaryTreeUse {
 //			return null;
 //		if(root.left==null )
 //	}
-	public static BinaryNode<Integer> mirrorATree(BinaryNode<Integer> root)
+	public static BinaryNode<Integer> mirror(BinaryNode<Integer> root)
 	{
 		if(root==null)
 			return null;
@@ -488,42 +488,14 @@ public class BinaryTreeUse {
 			return root;
 		}
 		BinaryNode<Integer> element = root;
-		BinaryNode<Integer> left=mirrorATree(root.left);
-		BinaryNode<Integer> right=mirrorATree(root.right);
+		BinaryNode<Integer> left=mirror(root.left);
+		BinaryNode<Integer> right=mirror(root.right);
 		element.left=right;
 		element.right=left;
 		return element;
 		
 		
 				
-	}
-	public static node<Integer> SortedLLFromTree(BinaryNode<Integer> root)
-	{
-		if(root==null)
-			return null;
-		if(root.left==null && root.right==null)
-		{
-			node<Integer> output=new node<Integer>();
-			output.data=root.data;
-			output.next=null;
-			return output;
-			
-		}
-		node<Integer> left=SortedLLFromTree(root.left);
-		node<Integer> right= SortedLLFromTree(root.right);
-		
-		node<Integer> output = new node<Integer>();
-		output.data=root.data;
-		output.next=right;
-		node<Integer> current= right;
-		while(current.next!=null)
-		{
-			current=current.next;
-		}
-		current.next=output;
-		return right;
-		
-		
 	}
 	public static pair isBalance(BinaryNode<Integer> root)
 	{
@@ -564,7 +536,6 @@ public class BinaryTreeUse {
 			
 				
 	}
-
 	private static int abs(int i) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -580,11 +551,8 @@ public class BinaryTreeUse {
 //	    print(root);
 //		
 		//ZigZag(root);
-//		BinaryNode<Integer> mirroring=mirror(root);
-//		print(mirroring);
-		node<Integer> output=SortedLLFromTree(root);
-		linkedList.printLinkedList(output);
-		
+		BinaryNode<Integer> mirroring=mirror(root);
+		print(mirroring);
 	}
 	
 	

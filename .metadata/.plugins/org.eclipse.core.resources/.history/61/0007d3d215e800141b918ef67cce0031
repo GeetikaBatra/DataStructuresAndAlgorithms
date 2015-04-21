@@ -507,7 +507,7 @@ public class linkedList {
 		
 		
 		//System.out.println(midPoint(Head));
-	
+		printLinkedList(reverseRecursive(Head));
 		//printReverse(Head);
 		
 		
