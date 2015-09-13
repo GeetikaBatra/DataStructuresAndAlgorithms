@@ -1,0 +1,12 @@
+package DataStructures;
+
+public class MapPairNode {
+	MapPair Head;
+	MapPair Data;
+	public MapPairNode()
+	{
+	   Data=new MapPair();
+	   
+		  	 	
+	}
+}

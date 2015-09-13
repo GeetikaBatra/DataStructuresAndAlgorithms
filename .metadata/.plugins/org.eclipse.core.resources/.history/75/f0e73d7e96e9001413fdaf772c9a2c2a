@@ -1,0 +1,10 @@
+package DataStructures;
+
+public class MapPairNode {
+	MapPair Head;
+	public MapPairNode()
+	{
+		Head=null;
+		  	 	
+	}
+}

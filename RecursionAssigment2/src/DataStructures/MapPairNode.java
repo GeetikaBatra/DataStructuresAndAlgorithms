@@ -1,10 +1,13 @@
-package DataStructures;
-
+//package DataStructures;
+//
 //public class MapPairNode {
-//	MapPair Head;
-//	MapPair data;
+//	MapPair Data;
 //	public MapPairNode()
 //	{
-//		data=new MapPair();
+//	   Data=new MapPair();
+//	   Data.Value=null;
+//	   Data.Key=null;
+//	   Data.next=null;
+//		  	 	
 //	}
 //}

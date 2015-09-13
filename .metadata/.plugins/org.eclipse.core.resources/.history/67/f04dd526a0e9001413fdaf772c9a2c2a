@@ -1,0 +1,14 @@
+package DataStructures;
+
+public class MapPair {
+	String Key;
+	String Value;
+	MapPair next;
+	public MapPair()
+	{
+		Key=null;
+		Value=null;
+		next=null;
+	}
+	
+}

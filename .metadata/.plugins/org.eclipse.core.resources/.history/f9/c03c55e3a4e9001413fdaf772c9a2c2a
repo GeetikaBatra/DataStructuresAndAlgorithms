@@ -1,0 +1,57 @@
+package DataStructures;
+
+class MapUse {
+	   static int size=0;
+	   static MapPairNode[] bucket=new MapPairNode[5];
+		public static int size()
+		{
+			return size;
+		}
+		public static boolean isEmpty()
+		{
+			if(size==0)
+			{
+				return true;
+			}
+			return false;
+		}
+		public static int compress(int hash)
+		{
+			return hash%bucket.length;
+		}
+	 
+		public static void put(String value,String key)
+		{
+			int hash=key.hashCode();
+			int index=compress(hash);
+			bucket[index].Data.Key=key;
+			bucket[index].Data.Value=value;
+			if(bucket[index]==null)
+			{
+				bucket[index].Head = bucket[index].Data;
+				
+			    
+			    bucket[index].Head.next=null;
+			}
+			else
+			{
+			
+			
+			
+			bucket[index].Data.next=bucket[index].Head;
+			bucket[index].Head=bucket[index].Data;
+			
+			
+			
+			}
+	 
+	 
+		}
+		public static void main(String[] args)
+		{
+			put("abc","def");
+	 
+		}
+	 
+		}
+	 

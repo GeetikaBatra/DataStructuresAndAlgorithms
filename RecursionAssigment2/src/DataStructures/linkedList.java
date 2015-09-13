@@ -446,9 +446,11 @@ public class linkedList {
 	public static void printReverse(node<Integer> head)
 	{
 		
-		if(head.next==null || head==null)
+		//if(head.next==null || head==null)
+		if(head==null)
 		{
-			System.out.println(head.data);
+			//System.out.println(head.data);
+			return;
 			
 		}
 		else

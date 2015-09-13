@@ -1,0 +1,83 @@
+package Practice;
+
+import java.util.Scanner;
+
+public class DoublyLinkedList<T> {
+	
+	public static DLLNode<Integer> generatingDLL()
+	{
+		System.out.println("Enter the elements");
+		Scanner s = new Scanner(System.in);
+		int data=s.nextInt();
+		if(data==-1)
+			{
+			return null;
+			}
+			DLLNode<Integer> head= new DLLNode<Integer>(null);
+			
+			head.Prev=null;
+			head.Next=null;
+			DLLNode<Integer> tail=head;
+			
+			while(data!=-1)
+			{
+				if(head.data==null)
+				{
+					head.data=data;
+				}
+				else
+				{
+				DLLNode<Integer> temp = new DLLNode<Integer>(data);
+				temp.Next=null;
+				temp.Prev=tail;
+				tail.Next=temp;
+				tail=temp;
+				}
+				data=s.nextInt();
+			}
+			return head;
+	}
+	public static void printDLL(DLLNode<Integer> head)
+	{
+		if(head==null)
+		{
+			System.out.println("List is empty");
+		}
+		DLLNode<Integer> current = head;
+		while(current!=null)
+		{
+			System.out.println(current.data);
+			current=current.Next;
+		}
+		
+		
+		
+		
+	}
+	public static int returnAtPos(int pos, DLLNode<Integer> head)
+	{
+		DLLNode<Integer> current=head;
+		while(pos!=0)
+		{   
+			if(current.Next==null)
+			{
+				break;
+			}
+				
+			current=current.Next;
+			pos--;
+			
+		}
+		return current.data;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		DLLNode<Integer> head = generatingDLL();
+		System.out.println(returnAtPos(3, head));
+		printDLL(head);
+
+	}
+
+}

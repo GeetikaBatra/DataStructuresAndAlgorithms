@@ -1,0 +1,60 @@
+package Practice;
+
+import java.util.Scanner;
+
+public class DoublyLinkedList<T> {
+	
+	public static DLLNode<Integer> generatingDLL()
+	{
+		System.out.println("Enter the elements");
+		Scanner s = new Scanner(System.in);
+		int data=s.nextInt();
+		if(data==-1)
+			{
+			return null;
+			}
+			DLLNode<Integer> head= new DLLNode<Integer>(data);
+			head.Next=null;
+			head.Prev=null;
+			DLLNode<Integer> tail=head;
+				
+			while(data!=-1)
+			{
+				if(head.data==null)
+				{
+					head.data=data;
+				}
+				
+				DLLNode<Integer> temp = new DLLNode<Integer>(data);
+				temp.data=data;
+				temp.Next=null;
+				temp.Prev=tail;
+				tail=temp;
+				data=s.nextInt();
+				
+			}
+			return head;
+	}
+	public static void printDLL(DLLNode<Integer> head)
+	{
+		if(head==null)
+		{
+			System.out.println("List is empty");
+		}
+		DLLNode<Integer> current = head;
+		while(current!=null)
+		{
+			System.out.println(head.data);
+			current=current.Next;
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		DLLNode<Integer> head = generatingDLL();
+		printDLL(head);
+
+	}
+
+}

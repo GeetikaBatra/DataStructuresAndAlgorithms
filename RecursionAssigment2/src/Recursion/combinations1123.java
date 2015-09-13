@@ -116,7 +116,8 @@ public class combinations1123 {
 	{
 		if(input.length()==2)
 		{
-			if(Integer.parseInt(input)<26){
+	\
+	if(Integer.parseInt(input)<26){
 				String[] output = new String[2];
 				
 				output[0]=correspondingChar(input.substring(0,1))+correspondingChar(input.substring(1));
@@ -169,7 +170,7 @@ public class combinations1123 {
 			
 			}
 			return output;
-			
+	6		
 		}
 		
 	}
