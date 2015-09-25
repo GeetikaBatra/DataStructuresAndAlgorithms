@@ -1,0 +1,39 @@
+package Hash;
+
+public class HashTable<T> {
+	
+	private int tSize;
+	private int count;
+	private HashTableNode<T>[] table;
+	
+	public void setSize(int tSize)
+	{
+		this.tSize=tSize;
+		
+	}
+	
+	public int getTSize()
+	{
+		return tSize;
+	}
+	public void setCount(int count)
+	{
+		this.count=count;
+	}
+	public int getCount()
+	{
+		return count;
+	}
+	public void setHashTable(HashTableNode<T>[] table)
+	{
+		this.table=table;
+	}
+	public HashTableNode<T>[] getHashTable()
+	{
+		return table;
+	}
+	
+
+
+
+}

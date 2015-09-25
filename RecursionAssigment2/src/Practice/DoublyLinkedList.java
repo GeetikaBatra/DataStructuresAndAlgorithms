@@ -162,6 +162,35 @@ public class DoublyLinkedList<T> {
 		
 		
 	}
+	public static DLLNode<Integer> removeByNode(DLLNode<Integer> node, DLLNode<Integer> head)
+	{
+		if(head==null)
+		{
+			
+			return null;
+		}
+		if(head.Next==null)
+		{
+			if(node.equals(head))
+			{
+				return null;
+			}
+			return head;
+		}
+		DLLNode<Integer> current = head;
+		
+		while(!node.equals(current))
+		{
+			if(current==null)
+			{
+				return null;
+			}
+			current=current.Next;
+		}
+		current.Prev.Next=current.Next;
+		current.Next.Prev=current.Prev;
+		return head;
+	}
 	public static DLLNode<Integer> removal(DLLNode<Integer> head, int pos)
 	{
 		if(pos<=0)
@@ -193,7 +222,8 @@ public class DoublyLinkedList<T> {
 		// TODO Auto-generated method stub
 		
 		DLLNode<Integer> head = generatingDLL();
-		printDLL(removal(head,3));
+		DLLNode<Integer> node= new DLLNode<Integer>(3);
+		printDLL(removeByNode(node,head));
 		//System.out.println(length(head));
 		
 		//System.out.println(returnAtPos(10, head));

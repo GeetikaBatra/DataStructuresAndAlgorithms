@@ -1,0 +1,28 @@
+package Hash;
+
+public class HashTableOperations {
+
+	public final static int LOADFACTOR=20;
+	public static HashTable<Integer> createHashTable(int size)
+	{
+		HashTable<Integer> h = new HashTable<Integer>();
+		h.setSize(size/LOADFACTOR);
+		for(int i= 0; i<h.getTSize();i++)
+		{
+			h.getHashTable()[i].startNode=null;
+		}
+		return h;
+	}
+	public static int hashSearch(HashTable<Integer> h, int data)
+	{
+		ListNode<Integer> temp;
+		temp=h.getTable()[Hash(data,h.getTSize())]
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+
+}

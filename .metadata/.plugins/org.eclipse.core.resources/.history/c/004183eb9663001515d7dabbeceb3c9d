@@ -1,0 +1,28 @@
+package Hash;
+
+public class ListNode<T> {
+	private T key;
+	private T data;
+	private ListNode<T> next;
+	
+	public void setKey( T key)
+	{
+		this.key=key;
+	}
+	public void setData(T data)
+	{
+		this.data=data;
+	}
+	public T getData()
+	{
+		return data;
+	}
+	public void setNextListNode(ListNode<T> next)
+	{
+		this.next=next;
+	}
+	public ListNode<T> getNext()
+	{
+		return next;
+	}
+}

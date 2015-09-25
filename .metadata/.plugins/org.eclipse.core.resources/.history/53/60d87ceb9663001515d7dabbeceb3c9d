@@ -1,0 +1,25 @@
+package Hash;
+
+public class HashTableNode<T>{
+		private int blockCount;
+		ListNode<T> startNode;
+		
+		public void setBlockCount(int blockCount)
+		{
+			this.blockCount=blockCount;
+		}
+		public int getBlockCount()
+		{
+			return blockCount;
+		}
+		public void setStartNode(ListNode<T> startNode)
+		
+		{
+			this.startNode=startNode;
+		}
+		public ListNode<T> getStartNode()
+		{
+			return startNode;
+		}
+
+}

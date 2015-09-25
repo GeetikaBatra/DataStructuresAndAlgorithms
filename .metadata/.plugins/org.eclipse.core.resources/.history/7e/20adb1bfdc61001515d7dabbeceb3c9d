@@ -1,0 +1,36 @@
+package Hash;
+
+public class RemoveDuplicateWithoutHash {
+	public static void RemoveDuplicate(char[] s, int n)
+	{
+		for(int i=0;i<n;i++)
+		{
+			for(int j=i+1;j<n;j++)
+			{
+				if(s[i]==s[j])
+				{
+					if(s[i]==s[n])
+					{
+						n--;
+					}
+					s[i]=s[n];
+					n--;
+					
+				}
+			}
+		}
+		for(int i=0;i<n;i++)
+		{
+			System.out.println(s[i]);
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char[] s= new char[]{'g','e','e','t','e','k','a'};
+		
+		RemoveDuplicate(s,7);
+	}
+
+}
