@@ -139,7 +139,7 @@ public class CircularList {
 			generateCLL();
 			//Inserting(3,5);
 			
-			System.out.println(deleting(3).data);
+			System.out.println(deleting(2).data);
 			printCLL(Head);
 			//System.out.println(CircularListLength());
 			

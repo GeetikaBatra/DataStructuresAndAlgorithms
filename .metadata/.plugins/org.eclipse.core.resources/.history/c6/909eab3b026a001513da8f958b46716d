@@ -138,8 +138,8 @@ public class CircularList {
 		// TODO Auto-generated method stub
 			generateCLL();
 			//Inserting(3,5);
-			
-			System.out.println(deleting(3).data);
+			CLLNode datadel=deleting(0);
+			System.out.println(deleting(0));
 			printCLL(Head);
 			//System.out.println(CircularListLength());
 			

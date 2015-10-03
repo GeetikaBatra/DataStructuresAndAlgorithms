@@ -98,48 +98,10 @@ public class CircularList {
 		
 		
 	}
-	public static CLLNode deleting(int pos)
-	{
-		CLLNode temp;
-		if(pos==0)
-		{
-			
-			temp=Head;
-			Tail.next=Head.next;
-			Head=Head.next;
-			temp.next=temp;
-			return temp;
-					
-		}
-		CLLNode current=Head;
-		if(pos>=CircularListLength()-1)
-		{	
-			while(current.next!=Tail)
-			{
-				current=current.next;
-			}
-			temp=Tail;
-			current.next=Head;
-			Tail=current;
-			temp.next=temp;
-			return temp;
-		}
-		while(pos>1)
-		{
-			current=current.next;
-			pos--;
-		}
-		temp=current.next;
-		current.next=current.next.next;
-		temp.next=temp;
-		return temp;
-	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			generateCLL();
-			//Inserting(3,5);
-			
-			System.out.println(deleting(3).data);
+			Inserting(3,5);
 			printCLL(Head);
 			//System.out.println(CircularListLength());
 			
