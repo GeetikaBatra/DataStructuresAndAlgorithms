@@ -72,7 +72,7 @@ public class CheckingUniqueInString {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String first="aaa";
+		String first="alibaba";
 //		String second=checkUnique(first);
 //		if(second.length()==first.length())
 //		{
