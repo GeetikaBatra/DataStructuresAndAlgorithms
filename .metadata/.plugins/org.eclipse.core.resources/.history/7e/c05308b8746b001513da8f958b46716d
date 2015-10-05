@@ -57,17 +57,17 @@ public class CheckingUniqueInString {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String first="alibaba";
-		String second=checkUnique(first);
-		if(second.length()==first.length())
-		{
-			System.out.println("True");
-		}
-		else
-		{
-			System.out.println("False");
-		}
-		//System.out.print(isStringUnique(first));
+		String first="geetika";
+//		String second=checkUnique(first);
+//		if(second.length()==first.length())
+//		{
+//			System.out.println("True");
+//		}
+//		else
+//		{
+//			System.out.println("False");
+//		}
+		System.out.print(isStringUnique(first));
 		
 		
 		
