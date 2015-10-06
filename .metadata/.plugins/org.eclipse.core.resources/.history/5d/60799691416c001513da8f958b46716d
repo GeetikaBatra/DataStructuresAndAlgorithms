@@ -1,5 +1,5 @@
 package ArraysAndStrings;
-import java.util.Arrays;
+
 public class MergeSort {
 
 	
@@ -80,26 +80,18 @@ public class MergeSort {
 		mergeSort(char_set2,0,str2.length()-1);
 		StringBuilder String1=new StringBuilder();
 		StringBuilder String2=new StringBuilder();
-//		for(int i=0;i<str1.length();i++)
-//		{
-//			 String1.append(char_set1[i]);
-//			 
-//			 String2.append(char_set2[i]);
-//			 
-//		}
-//		str1=String1.toString();
-//		str2=String2.toString();
-//		if(str1.equals(str2))
-//		
-//			{
-//			return true;
-//			}
-//		return false;
-		
-		if(Arrays.equals(char_set1, char_set2))
+		for(int i=0;i<str1.length();i++)
 		{
-			return true;
+			 String1.append(char_set1[i]);
+			 
+			 String2.append(char_set2[i]);
+			 
 		}
+		if(String1==String2)
+		
+			{
+			return true;
+			}
 		return false;
 	}
 	public static void main(String[] args) {

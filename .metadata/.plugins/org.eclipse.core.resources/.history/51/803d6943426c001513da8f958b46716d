@@ -119,7 +119,7 @@ public class MergeSort {
 //			System.out.println(char_set[i]);
 //		}
 		String str1= "dcba";
-		String str2= "abcd";
+		String str2= "good";
 		System.out.println(checkAnagram(str1,str2));
 	}
 
