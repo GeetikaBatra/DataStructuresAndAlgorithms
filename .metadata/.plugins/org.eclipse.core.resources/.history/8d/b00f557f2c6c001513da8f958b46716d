@@ -74,7 +74,7 @@ public class MergeSort {
 			char_set[i]=str.charAt(i);
 		}
 		//mergeSort(x,0,4);
-		mergeSort(char_set,0,3);
+		mergeSort(char_set,0,4);
 		for(int i=0;i<char_set.length;i++)
 		{
 			System.out.println(char_set[i]);
