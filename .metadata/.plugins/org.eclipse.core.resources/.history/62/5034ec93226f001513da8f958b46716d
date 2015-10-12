@@ -1,0 +1,19 @@
+package lyxelInterview;
+
+public class Lyxel {
+
+	//public void Remove()
+	{
+		
+	}//
+	public static void main(String[] args) {
+		String s = " This is   a new work.";
+		
+		s=s.replaceAll("\\s+"," ");
+		
+		System.out.println(s);
+		
+		}
+
+	}
+

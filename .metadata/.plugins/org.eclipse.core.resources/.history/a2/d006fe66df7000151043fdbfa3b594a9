@@ -1,0 +1,11 @@
+package ArraysAndStrings;
+
+public class LinkedLists {
+
+	public static generateLoopyL(int data)
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -3,6 +3,7 @@ package DataStructures;
 import java.util.Scanner;
 
 public class linkedList {
+	private static int counter=0;
 	public static node<Integer> takeInputOfLinkedList()
 	{
 		node<Integer> Head = null;
@@ -39,7 +40,24 @@ public class linkedList {
 		
 		
 	}
-	
+	public static node<Integer> nthFromLast(node<Integer> Head, int n)
+	{
+		if(Head!=null)
+		{
+			node<Integer> toBeReturned=nthFromLast(Head.next,n);
+			if(toBeReturned!=null)
+			{
+				return toBeReturned;
+			}
+				counter++;
+				if(counter==n)
+				{
+					Head.next=null;
+					return Head;
+				}
+		}
+		return null;
+	}
 	public static node<Integer> getLinkedList()
 	{
 		node<Integer> head = null;
@@ -507,7 +525,7 @@ public class linkedList {
 		
 		node<Integer> Head = takeInputOfLinkedList();
 		
-		
+		printLinkedList(nthFromLast(Head,4));
 		//System.out.println(midPoint(Head));
 	
 		//printReverse(Head);

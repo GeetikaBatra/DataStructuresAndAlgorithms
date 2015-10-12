@@ -1,0 +1,20 @@
+package lyxelInterview;
+
+public class Lyxel {
+
+	//public void Remove()
+	{
+		
+	}//
+	public static void main(String[] args) {
+		String s = " This is \t \n     a new work.";
+		String str= "My   name \n \t is Alisha";
+		
+		str=str.replaceAll("\\s+"," ");
+		
+		System.out.println(str);
+		
+		}
+
+	}
+

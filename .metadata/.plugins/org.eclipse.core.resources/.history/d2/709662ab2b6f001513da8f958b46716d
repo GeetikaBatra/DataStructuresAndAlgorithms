@@ -1,0 +1,50 @@
+package lyxelInterview;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class lyxelExcel{
+
+  public static void main(String[] args) {
+
+	lyxelExcel obj = new lyxelExcel();
+	obj.run();
+
+  }
+
+  public void run() {
+
+	String csvFile = "C:/Users/GeetikaBatra/Desktop/GeoPC_IN.csv";
+	BufferedReader br = null;
+	String line = "";
+	String cvsSplitBy = ";";
+
+	try {
+
+		br = new BufferedReader(new FileReader(csvFile));
+		while ((line = br.readLine()) != null) {
+
+		        // use comma as separator
+			String[] name = line.split(cvsSplitBy);
+
+			System.out.println(name[4]+name[5]+name[6]+name[7]);
+
+		}
+
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	} finally {
+		if (br != null) {
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+  }
+
+}

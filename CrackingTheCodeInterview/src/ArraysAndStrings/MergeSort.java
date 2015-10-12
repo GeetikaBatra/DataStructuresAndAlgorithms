@@ -105,7 +105,7 @@ public class MergeSort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//int[] x={5,4,3,2,1};
+		//int[] x={5,4,3,2,1};	
 //	    String str= "dcba";
 //		char[] char_set= new char[str.length()];
 //		for(int i=0;i<str.length();i++)

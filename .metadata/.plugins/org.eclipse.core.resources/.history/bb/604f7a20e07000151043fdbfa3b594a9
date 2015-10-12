@@ -1,0 +1,14 @@
+package LinkedList;
+
+public class generateLoopyList {
+
+	node head=null;
+	node tail=null;
+	ehilr()
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,68 @@
+package LinkedList;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class LoopyLinkedList {
+
+	public static node generate()
+	{
+		Scanner s= new Scanner(System.in);
+		int data=s.nextInt();
+	   
+		node head=null;
+		node tail=null;
+		int loopCount=3;
+		node loop=null;
+		while(data!=-1)
+		{
+
+			node newNode=new node();
+			newNode.data=data;
+			newNode.next=null;
+			if(head==null)
+			{
+				head=newNode;
+				tail=newNode;
+			}
+			tail.next=newNode;
+		   tail=tail.next;
+		   loopCount--;
+		   if(loopCount==0)
+		   {
+			   loop=tail;
+		   }
+		   data=s.nextInt();
+			
+		}
+		
+			tail.next=loop;
+		return head;
+	}
+	
+	public static void printing(node head)
+	{
+		HashMap<Integer,node> map=new HashMap<Integer,node>();
+		node current=head;
+		int count=1;
+		while(current!=null)
+		{
+			if(map.containsValue(current))
+			{
+				break;
+			}
+			map.put(count, current);
+		}
+		for(int i=0;i<map.size();i++)
+		{
+			System.out.println(map.get(i).data);
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		node head=generate();
+		printing(head);
+		
+	}
+
+}
