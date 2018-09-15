@@ -161,14 +161,98 @@ class TreeUse(object):
         
         return root
         
+    @classmethod
+    def numberOfLeaves(cls, root):
+        queue_ = [root]
+        count_ = 0
+        while(len(queue_)>0):
+            curr = queue_.pop(0)
+            if curr.left is not None:
+                queue_.append(curr.left)
+            if curr.right is not None:
+                queue_.append(curr.right)
+            
+            if curr.left is None and curr.right is None:
+                count_ += 1
+        return count_
+    @classmethod
+    def numberOfFullNodes(cls, root):
+        if root is None:
+            return 0
+        queue_ = [root]
+        count_ = 0
+        while(len(queue_)>0):
+            curr = queue_.pop(0)
+            if curr.left is not None:
+                queue_.append(curr.left)
+            if curr.right is not None:
+                queue_.append(curr.right)
+            
+            if curr.left is not None and curr.right is not None:
+                count_ += 1
+        return count_
+        
+    @classmethod
+    def numberOfHalfNodes(cls, root):
+        if root is None:
+            return 0
+        queue_ = [root]
+        count_ = 0
+        while(len(queue_)>0):
+            curr = queue_.pop(0)
+            if curr.left is not None:
+                queue_.append(curr.left)
+            if curr.right is not None:
+                queue_.append(curr.right)
+            
+            if curr.left is not None and curr.right is not None:
+                count_ += 1
+        return count_
+
+    def checkStructureIndentical(self, root1, root2):
+        if root1 is None and root2 is None:
+            return True
+        if root1 is None or root2 is None:
+            return False
+
+        left_check = self.checkStructureIndentical(root1.left, root2.left)
+        right_check = self.checkStructureIndentical(root1.right, root2.right)
+
+        if (not left_check) or (not right_check):
+            return False
+        
+        return True
+    
+    def diameter(self, root):
+        if root is None:
+            return 0,0
+        
+        left_diameter, left_height = self.diameter(root.left)
+        right_diameter, right_height = self.diameter(root.right)
+
+        current_diameter = left_height + right_height + 1
+
+        height = max(left_height, right_height) + 1
+
+        max_diameter = max(left_diameter, right_diameter)
+        max_diameter = max(max_diameter, current_diameter)
+
+        return max_diameter, height
+
 if __name__ == '__main__':
     tree = BinaryTree()
     root = tree.create_tree()
+    # root2 = tree.create_tree()
     # tree.print_tree(root)
     # print(TreeUse.findheightrecursive(root))
     # print(TreeUse.findHeightStack(root))
     # print(TreeUse.findHeightQueue(root))
     # print(TreeUse.findMinDepth(root))
     # print(TreeUse.findDeepestNode(root))
-    root = TreeUse.deleteNode(3, root)
-    tree.print_tree(root)
+    # root = TreeUse.deleteNode(3, root)
+    # tree.print_tree(root)
+    # print(TreeUse.numberOfLeaves(root))
+    # print(TreeUse.numberOfFullNodes(root))
+    treeUse = TreeUse()
+    # print(treeUse.checkStructureIndentical(root1, root2))
+    print(treeUse.diameter(root))
