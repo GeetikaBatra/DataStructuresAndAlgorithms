@@ -238,6 +238,75 @@ class TreeUse(object):
         max_diameter = max(max_diameter, current_diameter)
 
         return max_diameter, height
+    
+    @classmethod
+    def widthOfBinaryTree(cls, root):
+        width_ = 0
+        queue_ = [root, None]
+        count = 0
+        while(len(queue_)>0):
+            elem_ = queue_.pop(0)
+            if elem_ is None:
+                if len(queue_)== 0:
+                    if width_< count:
+                        width_ = count
+                    break
+                queue_.append(None)
+                count = 0
+                continue
+            count += 1
+            if elem_.left is not None:
+                queue_.append(elem_.left)
+            if elem_.right is not None:
+                queue_.append(elem_.right)
+        return width_
+
+    # @classmethod
+    # def findMaxSum(cls, root):
+    #     queue_ = [root, None]
+    #     max_sum = 0 
+    #     sum_ = 0
+    #     while True:
+    #         elem_  = queue_.pop(0)
+    #         if elem_ is None:
+    #             if len(queue_) == 0:
+    
+    # def findRootLeafPath(self, root,  path):
+    #     if root is None:
+    #         return
+    #     path.append(root.data)
+    #     import pdb
+    #     pdb.set_trace()
+    #     if root.left is None and root.right is None:
+    #         print path
+    #     else:
+    #         self.findRootLeafPath(root.left, path)
+    #         self.findRootLeafPath(root.right, path)
+
+    def findRootLeafPath(self, root):
+        if root is None:
+            return []
+        if root.left is None and root.right is None:
+            return [[root.data]]
+        left_path = self.findRootLeafPath(root.left)
+        right_path = self.findRootLeafPath(root.right)
+
+        return_list = list()
+
+        for each_ in left_path:
+            each_.append(root.data)
+            return_list.append(each_)
+
+        for each_ in right_path:
+            each_.append(root.data)
+            return_list.append(each_)
+        
+        return return_list
+
+
+    def printPath(self, list_):
+        for each_ in list_:
+            print(each_)
 
 if __name__ == '__main__':
     tree = BinaryTree()
@@ -255,4 +324,7 @@ if __name__ == '__main__':
     # print(TreeUse.numberOfFullNodes(root))
     treeUse = TreeUse()
     # print(treeUse.checkStructureIndentical(root1, root2))
-    print(treeUse.diameter(root))
+    # print(treeUse.diameter(root))
+    # print(TreeUse.widthOfBinaryTree(root))
+    list_ = treeUse.findRootLeafPath(root)
+    treeUse.printPath(list_)
